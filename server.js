@@ -96,6 +96,27 @@ app.delete('/blackboard/classrooms/:classroomId', async (req, res) => {
 });
 
 
+//STUDENT INDEX (GET FORM)
+
+app.get('/blackboard/classrooms/:classroomId/newstudent', async (req,res) => {
+    const classroom = await Classroom.findById(req.params.classroomId);
+    res.render('students/newstudent.ejs', {classroom: classroom})
+});
+
+//CREATE NEW STUDENT (POST)
+app.post('/blackboard/classrooms/:classroomId', async (req, res) => {
+    try {
+    const currentClass = await Classroom.findById(req.params.classroomId);
+    const newStudent = currentClass.students.push(req.body);
+    console.log(req.body);
+    await currentClass.save();
+    // console.log(newStudent);
+    res.redirect(`/blackboard/classrooms/${req.params.classroomId}`);
+    } catch (error) {
+        console.log(error);
+        res.redirect(`/blackboard/classrooms/${req.params.classroomId}`);
+    }
+});
 
 
 

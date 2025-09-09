@@ -9,8 +9,9 @@
     <%- include('../partials/_navbar.ejs') %>
     <h1>Your Classrooms!</h1>
         <ul>
-            <li>
+            
             <% classrooms.forEach((classroom) => { %>
+                <li>
                 <a href="/blackboard/classrooms/<%= classroom._id %>">
                     <%= classroom.className %>
                 </a> 
