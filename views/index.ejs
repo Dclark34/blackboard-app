@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classrooms</title>
+</head>
+<body>
+    <h1>Your Classrooms!</h1>
+    <%= if (classrooms) {%>
+        <ul>
+            <li>
+            <% classrooms.forEach((classroom) => { %>
+                <a href="/blackboard/classrooms/<%= classroom._id %>/students">
+                    <%= classroom.className %>
+                </a> 
+            <li>
+                <% }); %>
+        </ul>
+    <% } else { %>
+        <h1>You have no classrooms currently</h1>
+        <% }; %>
+    <div>
+        <a href="/blackboard/classrooms/new">Add a Classroom</a>
+    </div>
+</body>
+</html>
