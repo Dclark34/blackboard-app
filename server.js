@@ -50,13 +50,13 @@ app.get('/blackboard', async (req, res) => {
 //INDEX PAGE (GET, List of ClassRooms)
 app.get('/blackboard/classrooms', async (req, res) => {
     const allClasses = await Classroom.find();
-    res.render('index.ejs', { classrooms: allClasses });
+    res.render('classrooms/index.ejs', { classrooms: allClasses });
 });
 
 
 //CREATE a NEW CLASS (GET):
 app.get('/blackboard/classrooms/new', async (req, res) => {
- res.render('newclass.ejs');
+ res.render('classrooms/newclass.ejs');
 });
 
 //CREAT A NEW CLASS (POST)
@@ -67,10 +67,46 @@ app.post('/blackboard/classrooms', async (req, res) => {
 });
 
 
-//EDIT CLASSES (GET):
-app.get('/blackboard/classrooms/:classroomId/edit', async (req, res) => {
-    res.send('This is classroom id');
+//NEED A SHOW PAGE FOR EACH CLASSROOM TO SHOW THE STUDENTS (GET)
+app.get('/blackboard/classrooms/:classroomId', async (req, res) => {
+    const classroom = await Classroom.findById(req.params.classroomId);
+    res.render('students/studentindex.ejs', {classroom: classroom})
 });
+
+
+//UPDATE CLASS INFO (GET):
+app.get('/blackboard/classrooms/:classroomId/edit', async (req, res) => {
+    const classroom = await Classroom.findById(req.params.classroomId);
+    res.render("classrooms/edit.ejs", {classroom: classroom});
+});
+
+//UPDATE CLASS INFO (PUT)
+
+app.put('/blackboard/classrooms/:classroomId', async (req, res) => {
+    await Classroom.findByIdAndUpdate(req.params.classroomId, req.body);
+    res.redirect(`/blackboard/classrooms/${req.params.classroomId}`)
+});
+
+
+//DELETE A CLASSROOM
+
+app.delete('/blackboard/classrooms/:classroomId', async (req, res) => {
+    await Classroom.findByIdAndDelete(req.params.classroomId);
+    res.redirect('/blackboard/classrooms');
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

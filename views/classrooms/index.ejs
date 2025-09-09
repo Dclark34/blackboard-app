@@ -6,20 +6,17 @@
     <title>Classrooms</title>
 </head>
 <body>
+    <%- include('../partials/_navbar.ejs') %>
     <h1>Your Classrooms!</h1>
-    <%= if (classrooms) {%>
         <ul>
             <li>
             <% classrooms.forEach((classroom) => { %>
-                <a href="/blackboard/classrooms/<%= classroom._id %>/students">
+                <a href="/blackboard/classrooms/<%= classroom._id %>">
                     <%= classroom.className %>
                 </a> 
             <li>
                 <% }); %>
         </ul>
-    <% } else { %>
-        <h1>You have no classrooms currently</h1>
-        <% }; %>
     <div>
         <a href="/blackboard/classrooms/new">Add a Classroom</a>
     </div>

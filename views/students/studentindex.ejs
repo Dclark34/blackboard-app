@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students</title>
+</head>
+<body>
+    <%- include('../partials/_navbar.ejs') %>
+    <h1>Your Students!</h1>
+    <ul>
+        Currrently you have no students. 
+    </ul>
+    <div id="classroom-actions"> 
+    <a href="/blackboard/classrooms/<%= classroom._id %>/edit">Edit info for <%= classroom.className %>
+    </a>
+    <a href="/blackboard/classrooms/<%= classroom._id %>/newstudent">Add A New Student</a>
+    <form action="/blackboard/classrooms/<%=classroom._id %>?_method=Delete" method="POST">
+        <button id="delete-button" type="submit">Delete This Classroom</button>
+    </form>
+    </div>
+</body>
+</html>
