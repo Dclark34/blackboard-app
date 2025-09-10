@@ -164,6 +164,20 @@ app.put('/blackboard/classrooms/:classroomId/:studentId', async (req, res) => {
 });
 
 
+//DELETE STUDENT 
+
+app.delete('/blackboard/classrooms/:classroomId/:studentId', async (req, res) => {
+    try {
+        const currentClass = await Classroom.findById(req.params.classroomId);
+        const deletedStudent = currentClass.students.id(req.params.studentId).deleteOne();
+        await currentClass.save();
+        res.redirect(`/blackboard/classrooms/${req.params.classroomId}`);
+    } catch (error) {
+    console.log(error);
+    res.redirect(`/blackboard/classrooms/${req.params.classroomId}`);
+}
+});
+
 
 
 

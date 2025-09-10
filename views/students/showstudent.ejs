@@ -21,8 +21,8 @@
         <% } %>  
 
     <a href="/blackboard/classrooms/<%= classroom._id %>/<%= student._id%>/edit">Edit Student Info</a>
-    <form action="" method="">
-        <button type="submit">Remove Student</button>
+    <form action="/blackboard/classrooms/<%= classroom._id %>/<%= student._id%>?_method=DELETE" method="POST">
+        <button type="submit" id="delete-button">Remove Student</button>
     </form>
 </body>
 </html>
