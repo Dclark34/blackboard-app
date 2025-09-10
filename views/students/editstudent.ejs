@@ -8,17 +8,18 @@
 <body>
     <%- include('../partials/_navbar.ejs') %>
     <h1>Edit Student</h1>
-        <form action="/blackboard/classrooms/<%= classroom._id %>" method="POST">
-            <label name="name" id="name">Name: </label>
-            <input type="text" name="name" id="name" required maxlength="30"/>
+        <form action="/blackboard/classrooms/<%= classroom._id %>/<%= student._id %>?_method=PUT" method="POST">
+            <label name="name" id="name">Name:  </label>
+            <input type="text" name="name" id="name" required maxlength="30"
+            value="<%= student.name %>"/>
             <label name="gradeLevel" id="gradeLevel">Grade Level: </label>
-            <input type = "text" name="gradeLevel" id="gradeLevel"/>
+            <input type = "text" name="gradeLevel" id="gradeLevel" value="<%= student.gradeLevel %>"/>
             <label name="iep" id="iep">IEP: </label>
-            <input type="checkbox" name="iep" id="iep"/>
+            <input type="checkbox" name="iep" id="iep" <% if (student.iep) { %>checked<%}%>/>
             <label name = "notes" id="notes">Notes: </label>
-            <textarea name="notes" id="notes"></textarea>
+            <textarea name="notes" id="notes"><%= student.notes %></textarea>
             <label name="gradeAvg" id="gradeAvg">Grade Average: </label>
-            <input type="text" name="gradeAvg" id="gradeAvg"/>
+            <input type="text" name="gradeAvg" id="gradeAvg" value="<%= student.gradeAvg %>"/>
             <!--<label>Assignments: </label>
             <select name="assignments" id="assignments"> Currently there are no Assignments </select> ICEBOX FEATURE-->
             <button type="submit">Update Student Name</button>

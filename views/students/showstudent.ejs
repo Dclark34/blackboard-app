@@ -7,6 +7,7 @@
 </head>
 <body>
     <%- include('../partials/_navbar.ejs') %>
+    <div class="profile-pic" id="profile-pic"></div>
     <h1><%= student.name %></h1>
     <p>Grade Level: <%= student.gradeLevel%></p>
     <% if (student.iep) { %>
@@ -19,7 +20,7 @@
         <p>Student Notes: Currently there are no notes for <%=student.name%></p>
         <% } %>  
 
-    <a href="/blackboard/students/<%= classroom._id %>/<%= student._id%>/edit">Edit Student Info</a>
+    <a href="/blackboard/classrooms/<%= classroom._id %>/<%= student._id%>/edit">Edit Student Info</a>
     <form action="" method="">
         <button type="submit">Remove Student</button>
     </form>

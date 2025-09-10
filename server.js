@@ -111,7 +111,7 @@ app.post('/blackboard/classrooms/:classroomId', async (req, res) => {
         req.body.iep = false;
     }
     try {
-    const currentClass = await Classroom.findById(req.params.classroomId);// NEED CORRECT LOGIC for IEP.
+    const currentClass = await Classroom.findById(req.params.classroomId);
     const newStudent = currentClass.students.push(req.body);
     console.log(req.body);
     await currentClass.save();
@@ -129,16 +129,39 @@ app.get('/blackboard/classrooms/:classroomId/:studentId', async (req, res) => {
     const selectedClass = await Classroom.findById(req.params.classroomId);
     const currentStudent = await selectedClass.students.id(req.params.studentId);//MUST DO THIS ALSO FOR UPDATE AND DELETE FUCNTIONS
     console.log(currentStudent)
-    res.render('students/showstudent.ejs', {student: currentStudent});
+    res.render('students/showstudent.ejs', {student: currentStudent, classroom: selectedClass});
 });
 
 //EDIT STUDENT GET FORM
 
 app.get('/blackboard/classrooms/:classroomId/:studentId/edit', async (req, res) => {
-    res.send('this will be the form to edit a student!')
+    const selectedClass = await Classroom.findById(req.params.classroomId);
+    const currentStudent = await selectedClass.students.id(req.params.studentId);
+    res.render('students/editstudent.ejs', {classroom: selectedClass, student: currentStudent});
 });
 
 
+
+//UPDATE STUDENT PUT ROUTE
+
+app.put('/blackboard/classrooms/:classroomId/:studentId', async (req, res) => {
+    if (req.body.iep === "on") {
+        req.body.iep = true;
+    } else {
+        req.body.iep = false;
+    }
+    try {
+    const currentClass = await Classroom.findById(req.params.classroomId);
+    const updateStudent = currentClass.students.id(req.params.studentId);
+    updateStudent.set(req.body);
+    console.log(req.body);
+    await currentClass.save();
+    res.redirect(`/blackboard/classrooms/${req.params.classroomId}`);
+    } catch (error) {
+        console.log(error);
+        res.redirect(`/blackboard/classrooms/${req.params.classroomId}`);
+    }
+});
 
 
 
