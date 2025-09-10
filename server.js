@@ -67,7 +67,7 @@ app.post('/blackboard/classrooms', async (req, res) => {
 });
 
 
-//NEED A SHOW PAGE FOR EACH CLASSROOM TO SHOW THE STUDENTS (GET)
+//SHOW PAGE FOR EACH CLASSROOM TO SHOW THE STUDENTS (GET)
 app.get('/blackboard/classrooms/:classroomId', async (req, res) => {
     const classroom = await Classroom.findById(req.params.classroomId);
     res.render('students/studentindex.ejs', {classroom: classroom})
@@ -105,8 +105,13 @@ app.get('/blackboard/classrooms/:classroomId/newstudent', async (req,res) => {
 
 //CREATE NEW STUDENT (POST)
 app.post('/blackboard/classrooms/:classroomId', async (req, res) => {
+    if (req.body.iep === "on") {
+        req.body.iep = true;
+    } else {
+        req.body.iep = false;
+    }
     try {
-    const currentClass = await Classroom.findById(req.params.classroomId);
+    const currentClass = await Classroom.findById(req.params.classroomId);// NEED CORRECT LOGIC for IEP.
     const newStudent = currentClass.students.push(req.body);
     console.log(req.body);
     await currentClass.save();
@@ -119,8 +124,19 @@ app.post('/blackboard/classrooms/:classroomId', async (req, res) => {
 });
 
 
+//START HERE NEED SHOW PAGE FOR SPECIFIC STUDENT INFO (and ejs)
+app.get('/blackboard/classrooms/:classroomId/:studentId', async (req, res) => {
+    const selectedClass = await Classroom.findById(req.params.classroomId);
+    const currentStudent = await selectedClass.students.id(req.params.studentId);//MUST DO THIS ALSO FOR UPDATE AND DELETE FUCNTIONS
+    console.log(currentStudent)
+    res.render('students/showstudent.ejs', {student: currentStudent});
+});
 
+//EDIT STUDENT GET FORM
 
+app.get('/blackboard/classrooms/:classroomId/:studentId/edit', async (req, res) => {
+    res.send('this will be the form to edit a student!')
+});
 
 
 

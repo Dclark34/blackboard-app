@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= student.name %></title>
+</head>
+<body>
+    <%- include('../partials/_navbar.ejs') %>
+    <h1><%= student.name %></h1>
+    <p>Grade Level: <%= student.gradeLevel%></p>
+    <% if (student.iep) { %>
+        <p>Has an IEP. See notes for details.</p>
+        <% } else {} %>
+    <p>Current Average: <%=student.gradeAvg%></p>
+    <% if (student.notes) { %>
+        <p>Student Notes: <%= student.notes %></p>  
+        <% } else { %>
+        <p>Student Notes: Currently there are no notes for <%=student.name%></p>
+        <% } %>  
+
+    <a href="/blackboard/students/<%= classroom._id %>/<%= student._id%>/edit">Edit Student Info</a>
+    <form action="" method="">
+        <button type="submit">Remove Student</button>
+    </form>
+</body>
+</html>

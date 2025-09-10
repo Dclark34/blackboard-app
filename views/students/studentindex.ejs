@@ -11,7 +11,7 @@
     <ul>
         <% classroom.students.forEach((student) => {%>
             <li>
-                <a href="/blackboard/classrooms/<%= classroom._id %>/<%= student._id %>"><!--LEAD TO SHOW PAGE FOR SPECIFIC STUDENT-->
+                <a href="/blackboard/classrooms/<%= classroom._id %>/<%= student._id %>">
                     <%=student.name%>
                 </a>
             </li>
