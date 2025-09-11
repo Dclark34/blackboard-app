@@ -40,6 +40,9 @@ app.use(express.static(path.join(__dirname, "public")));
 
 //ALL ROUTES BELOW:
 
+app.get('/', async (req, res) => {
+    res.render("landing.ejs");
+});
 
 //LANDING PAGE (eventually signin will go here) (GET)
 app.get('/blackboard', async (req, res) => {
