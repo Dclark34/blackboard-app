@@ -3,24 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/index.css" />
     <title>Students</title>
 </head>
 <body>
     <%- include('../partials/_navbar.ejs') %>
     <h1><%=classroom.className%></h1>
-    <ul>
+    <ul style="list-style: none;">
         <% classroom.students.forEach((student) => {%>
+            <div class="div-card">
             <li>
-                <a href="/blackboard/classrooms/<%= classroom._id %>/<%= student._id %>">
+                <a href="/blackboard/classrooms/<%= classroom._id %>/<%= student._id %>" style="color: black">
                     <%=student.name%>
                 </a>
             </li>
+            </div>
             <% }); %>
     </ul>
     <div id="classroom-actions"> 
-    <a href="/blackboard/classrooms/<%= classroom._id %>/edit">Edit Class Info
+    <a href="/blackboard/classrooms/<%= classroom._id %>/edit" id="edit-class">Edit Class Info
     </a>
-    <a href="/blackboard/classrooms/<%= classroom._id %>/newstudent">Add A New Student</a>
+    <a href="/blackboard/classrooms/<%= classroom._id %>/newstudent" id="add-student">Add A New Student</a>
     <form action="/blackboard/classrooms/<%=classroom._id %>?_method=Delete" method="POST">
         <button id="delete-button" type="submit">Delete This Classroom</button>
     </form>

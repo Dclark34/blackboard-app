@@ -3,26 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/forms.css" />
     <title>Add Student</title>
 </head>
 <body>
     <%- include('../partials/_navbar.ejs') %>
     <h1>Add a New Student</h1>
+    <div id="new-student">
         <form action="/blackboard/classrooms/<%= classroom._id %>" method="POST">
+            <div class="form-field">
             <label name="name" id="name">Name: </label>
             <input type="text" name="name" id="name" required maxlength="30"/>
-            <label name="gradeLevel" id="gradeLevel">Grade Level: </label>
+            </div>
+            <div class="form-field">
+            <label name="gradeLevel" id="gradeLevel">Grade: </label>
             <input type = "text" name="gradeLevel" id="gradeLevel"/>
+            </div>
+            <div class="form-field">
             <label name="iep" id="iep">IEP: </label>
             <input type="checkbox" name="iep" id="iep"/>
+            </div>
+            <div class="form-field">
             <label name = "notes" id="notes">Notes: </label>
             <textarea name="notes" id="notes"></textarea>
+            </div>
+            <div class="form-field">
             <label name="gradeAvg" id="gradeAvg">Grade Average: </label>
             <input type="text" name="gradeAvg" id="gradeAvg"/>
+            </div>
             <!--<label>Assignments: </label>
             <select name="assignments" id="assignments"> Currently there are no Assignments </select> ICEBOX FEATURE-->
             <button type="submit">Add New Student to <%=classroom.className%></button>
         </form>
-        
+    </div>
 </body>
 </html>

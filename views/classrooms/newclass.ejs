@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="/stylesheets/forms.css" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Class</title>
@@ -8,10 +9,12 @@
 <body>
     <%- include('../partials/_navbar.ejs') %>
     <h1>Add a New Class</h1>
+    <div class="div-card">
     <form action="/blackboard/classrooms" method="POST">
-        <label for="name">Class Name: </label>
+        <label for="name" style="color: black;">Class Name: </label>
         <input type="text" name="className" id="className" required maxLength="75"/>
-        <button type="submit">Submit</button>
+        <button type="submit" style="color: white;">Submit</button>
     </form>
+    </div>
 </body>
 </html>

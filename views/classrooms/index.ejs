@@ -9,11 +9,11 @@
 <body>
     <%- include('../partials/_navbar.ejs') %>
     <h1>Your Classrooms!</h1>
-        <ul>
+        <ul style="list-style-type: none;">
             <% classrooms.forEach((classroom) => { %>
                 <div class="div-card">
                 <li>
-                <a href="/blackboard/classrooms/<%= classroom._id %>">
+                <a href="/blackboard/classrooms/<%= classroom._id %>" style="color: black;">
                     <%= classroom.className %>
                 </a> 
             </li>
@@ -21,7 +21,7 @@
                 <% }); %>
         </ul>
     <div>
-        <a href="/blackboard/classrooms/new" class="add-button">Add a Classroom</a>
+        <a href="/blackboard/classrooms/new" class="add-button" style="color: black">Add a Classroom</a>
     </div>
 </body>
 </html>

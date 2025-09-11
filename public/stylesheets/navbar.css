@@ -6,6 +6,7 @@ nav {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    align-items:flex-end;
     background-color: white;
     padding: 16px;
     width: 100vw;
@@ -19,6 +20,7 @@ nav {
     font-family: "Homemade Apple", cursive;
     font-weight: 400;
     font-style: normal;
+    margin-bottom: -17px;
 }
 
 a {
