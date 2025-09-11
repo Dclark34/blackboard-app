@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="/stylesheets/homepage.css" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BlackBoard App</title>
 </head>
 <body>
+    <div class="nav" id="nav">
     <%- include('./partials/_navbar.ejs') %>
+    </div>
+    <div class="welcome">
     <h1>Welcome to Blackboard!</h1>
-    <h2>The mobile gradebook for teachers!</h2>
+    </div>
     <div>
-        <a href="/blackboard/classrooms">Get Started!</a>
+    <h2 class="welcome">The online gradebook for teachers!</h2>
+    </div>
+    <div class="button" id="start-button">
+        <a href="/blackboard/classrooms" style="text-decoration: none;">Get Started!</a>
     </div>
 </body>
 </html>

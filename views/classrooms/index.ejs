@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="/stylesheets/index.css" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Classrooms</title>
@@ -10,15 +11,17 @@
     <h1>Your Classrooms!</h1>
         <ul>
             <% classrooms.forEach((classroom) => { %>
+                <div class="div-card">
                 <li>
                 <a href="/blackboard/classrooms/<%= classroom._id %>">
                     <%= classroom.className %>
                 </a> 
             </li>
+            </div>
                 <% }); %>
         </ul>
     <div>
-        <a href="/blackboard/classrooms/new">Add a Classroom</a>
+        <a href="/blackboard/classrooms/new" class="add-button">Add a Classroom</a>
     </div>
 </body>
 </html>

@@ -6,6 +6,7 @@ const app = express();
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 const morgan = require('morgan');
+const path = require('path');
 
 const PORT = process.env.PORT;
 
@@ -30,11 +31,10 @@ const Classroom = require('./models/classroom.js');
 app.use(express.urlencoded({ extended: false}));
 app.use(methodOverride('_method'));
 app.use(morgan('dev'));
+app.use(express.static(path.join(__dirname, "public")));
 
 
 
-
-//adding styling? Review this from rockit or fruit apps.
 
 
 
