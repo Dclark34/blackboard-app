@@ -8,7 +8,7 @@ const methodOverride = require('method-override');
 const morgan = require('morgan');
 const path = require('path');
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || "3000";
 
 
 
