@@ -8,7 +8,8 @@
 </head>
 <body>
     <%- include('../partials/_navbar.ejs') %>
-    <div class="profile-pic" id="profile-pic"></div>
+    <!-- <div class="profile-pic" id="profile-pic"></div> ICEBOX FEATURE TO INCLUDE-->
+     <div class="div-card">
     <h1><%= student.name %></h1>
     <p>Grade Level: <%= student.gradeLevel%></p>
     <% if (student.iep) { %>
@@ -20,10 +21,14 @@
         <% } else { %>
         <p>Student Notes: Currently there are no notes for <%=student.name%></p>
         <% } %>  
-
-    <a href="/blackboard/classrooms/<%= classroom._id %>/<%= student._id%>/edit">Edit Student Info</a>
+     </div>
+     <div class="form-actions">
+        <div class="button-div">
+    <a href="/blackboard/classrooms/<%= classroom._id %>/<%= student._id%>/edit" style="text-decoration: none;
+    color: black;">Edit Student Info</a> </div>
     <form action="/blackboard/classrooms/<%= classroom._id %>/<%= student._id%>?_method=DELETE" method="POST">
         <button type="submit" id="delete-button">Remove Student</button>
     </form>
+    </div>
 </body>
 </html>

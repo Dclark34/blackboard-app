@@ -15,8 +15,6 @@ body {
 }
 
 
-
-
 #start-button {
     padding: 20px 35px;
     border: 2px solid black;
@@ -26,3 +24,8 @@ body {
     font-family: "Quicksand", sans-serif;
 }
 
+#start-button:hover {
+    border: solid rgb(255, 255, 255);
+    border-radius: 25px;
+    transition-duration: .3s;
+}

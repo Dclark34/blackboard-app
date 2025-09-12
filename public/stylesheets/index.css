@@ -26,27 +26,37 @@ body {
     box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
 }
 
+.div-card:hover {
+    border: 5px solid rgba(49, 153, 91);
+    transition: .1s;
+}
+
 .add-button {
     padding: 17px 20px;
     border: 1px solid rgb(222, 222, 222);
     border-radius: 10px;
     background-color: #f8f9f8;
-    margin: 150px;
+    margin: auto;
     font-family: "Quicksand", sans-serif;
     box-shadow: 3px 3px 10px rgba(0,0,0,0.5);
 }
 
+.add-button:hover {
+    border: 5px solid rgba(49, 153, 91);
+    transition-duration: .3s;
+}
+
 #classroom-actions {
-    font-size: 20px;
     display: flex;
-    width: 50vw;
     align-items: center;
     justify-content: space-around;
     background-color: white;
+    width: 50vw;
     margin: 20px 20px 30px 60px;
     border: 1px solid rgb(222, 222, 222);
     border-radius: 20px;
     padding: 10px 40px;
+    font-size: 20px;
     box-shadow: 3px 3px 10px rgba(0,0,0,0.2);
 }
 
@@ -62,8 +72,13 @@ body {
     box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
 }
 
+#delete-button:hover {
+    border: solid rgb(255, 255, 255);
+    transition-duration: .3s;
+}
+
 #student-list{
-        display: flex;
+    display: flex;
     width: 50vw;
     align-items: center;
     justify-content: space-around;
@@ -74,4 +89,35 @@ body {
     border-radius: 5px;
     padding: 30px;
     box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+}
+
+
+.button-div {
+    display: flex;
+    width: 15vw;
+    justify-content: space-around;
+    background-color: rgb(255, 255, 255);
+    margin: 5px;
+    border: 3px solid rgb(223, 223, 223);
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+}
+
+.button-div:hover {
+    border: 5px solid rgba(49, 153, 91);
+    transition-duration: .3s;
+}
+
+li {
+    margin:5px;
+}
+
+#student-link:hover {
+    text-decoration: underline rgba(49, 153, 91);
+    transition-duration: .3s;
+}
+
+a {
+    text-decoration: none;
 }

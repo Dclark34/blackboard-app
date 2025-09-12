@@ -40,6 +40,13 @@ button {
     box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
 }
 
+
+#new-class-button:hover {
+    border: solid rgb(255, 255, 255);
+    border-radius: 25px;
+    transition-duration: .3s;
+}
+
 .div-card{
     display: flex;
     width: 80vw;
@@ -58,6 +65,19 @@ button {
     width: 80vw;
     align-items: center;
     justify-content: space-around;
+    background-color: rgb(255, 255, 255);
+    margin: 20px;
+    border: 2px solid rgb(222, 222, 222);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 3px 3px 10px rgba(0,0,0,0.5);
+}
+
+#edit-student{
+    display: flex;
+    width: 80vw;
+    align-items: center;
+    justify-content: center;
     background-color: rgb(255, 255, 255);
     margin: 20px;
     border: 2px solid rgb(222, 222, 222);
@@ -88,9 +108,30 @@ textarea {
 
 
 #new-student-button {
-    margin: 10px 0px 10px 120px;
+    margin: auto;
+    color: white;
+}
+
+#new-student-button:hover {
+    border: solid rgb(255, 255, 255);
+    border-radius: 25px;
+    transition-duration: .3s;
 }
 
 #update-student-button {
-margin: 10px 0px 10px 150px;
+margin: auto;
+position:sticky;
+}
+
+#update-student-button:hover {
+    border: solid rgb(255, 255, 255);
+    border-radius: 25px;
+    transition-duration: .3s;
+}
+
+
+#update-class-button:hover {
+    border: solid rgb(255, 255, 255);
+    border-radius: 25px;
+    transition-duration: .3s;
 }

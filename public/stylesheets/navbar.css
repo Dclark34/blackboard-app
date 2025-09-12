@@ -24,5 +24,15 @@ nav {
 }
 
 a {
-    text-decoration: white;
+    text-decoration: none;
+}
+
+#home-link:hover {
+    text-decoration: underline white;
+    transition: .3s;
+}
+
+#classroom-link:hover {
+    text-decoration: underline white;
+    transition: .3s;
 }

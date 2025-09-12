@@ -9,7 +9,7 @@
 <body>
     <%- include('../partials/_navbar.ejs') %>
     <h1>Edit Student</h1>
-    <div id="new-student">
+    <div id="edit-student">
         <form action="/blackboard/classrooms/<%= classroom._id %>/<%= student._id %>?_method=PUT" method="POST">
             <div class="form-field">
             <label name="name" id="name">Name:  </label>
@@ -34,7 +34,7 @@
             </div>
             <!--<label>Assignments: </label>
             <select name="assignments" id="assignments"> Currently there are no Assignments </select> ICEBOX FEATURE-->
-            <button type="submit" id="update-student-button">Update <%=student.name%>'s info</button>
+            <button type="submit" id="update-student-button" style="color: white;">Update <%=student.name%>'s info</button>
         </form>
         </div>
 </body>
