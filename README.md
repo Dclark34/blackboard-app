@@ -1,4 +1,4 @@
-![blackboard_logo] (./public/assets/blackboard_logo.png)
+![blackboard_logo](./public/assets/blackboard_logo.png)
 
 
 
