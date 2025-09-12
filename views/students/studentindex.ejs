@@ -9,21 +9,20 @@
 <body>
     <%- include('../partials/_navbar.ejs') %>
     <h1><%=classroom.className%></h1>
-    <ul style="list-style: none;">
-        <% classroom.students.forEach((student) => {%>
-            <div class="div-card">
+    <ul style="list-style: none;" id="student-list">
+        <p id="student-display">Current Students:</p>
+        <% classroom.students.forEach((student) => {%>   
             <li>
                 <a href="/blackboard/classrooms/<%= classroom._id %>/<%= student._id %>" style="color: black">
                     <%=student.name%>
                 </a>
             </li>
-            </div>
             <% }); %>
     </ul>
     <div id="classroom-actions"> 
-    <a href="/blackboard/classrooms/<%= classroom._id %>/edit" id="edit-class">Edit Class Info
+    <a href="/blackboard/classrooms/<%= classroom._id %>/edit" id="edit-class" style="color: black">Edit Class Info
     </a>
-    <a href="/blackboard/classrooms/<%= classroom._id %>/newstudent" id="add-student">Add A New Student</a>
+    <a href="/blackboard/classrooms/<%= classroom._id %>/newstudent" id="add-student" >Add A New Student</a>
     <form action="/blackboard/classrooms/<%=classroom._id %>?_method=Delete" method="POST">
         <button id="delete-button" type="submit">Delete This Classroom</button>
     </form>

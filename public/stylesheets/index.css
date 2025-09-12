@@ -62,3 +62,16 @@ body {
     box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
 }
 
+#student-list{
+        display: flex;
+    width: 50vw;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+    margin: 20px 20px 20px 50px;
+    border: 3px solid rgb(222, 222, 222);
+    border-radius: 5px;
+    padding: 30px;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+}

@@ -7,11 +7,11 @@ nav {
     flex-direction: row;
     justify-content: space-around;
     align-items:flex-end;
-    background-color: white;
     padding: 16px;
     width: 100vw;
     color: white;
-    background-color:#0c8216;
+    background: #145e1a;
+    background: linear-gradient(90deg,rgba(20, 94, 26, 1) 0%, rgba(49, 153, 91, 1) 50%, rgba(56, 140, 140, 1) 100%);
     font-family: "Quicksand", sans-serif;
     font-size: 28px;
 }
