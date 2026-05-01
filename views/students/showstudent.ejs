@@ -1,34 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/stylesheets/showstudent.css" />
-    <title><%= student.name %></title>
+    <title>
+        <%= student.name %>
+    </title>
 </head>
 <body>
     <%- include('../partials/_navbar.ejs') %>
-    <!-- <div class="profile-pic" id="profile-pic"></div> ICEBOX FEATURE TO INCLUDE-->
-     <div class="div-card">
-    <h1><%= student.name %></h1>
-    <p>Grade Level: <%= student.gradeLevel%></p>
-    <% if (student.iep) { %>
-        <p>Has an IEP. See notes for details.</p>
-        <% } else {} %>
-    <p>Current Average: <%=student.gradeAvg%></p>
-    <% if (student.notes) { %>
-        <p>Student Notes: <%= student.notes %></p>  
-        <% } else { %>
-        <p>Student Notes: Currently there are no notes for <%=student.name%></p>
-        <% } %>  
-     </div>
-     <div class="form-actions">
-        <div class="button-div">
-    <a href="/blackboard/classrooms/<%= classroom._id %>/<%= student._id%>/edit" style="text-decoration: none;
-    color: black;">Edit Student Info</a> </div>
-    <form action="/blackboard/classrooms/<%= classroom._id %>/<%= student._id%>?_method=DELETE" method="POST">
-        <button type="submit" id="delete-button">Remove Student</button>
-    </form>
-    </div>
-</body>
+        <!-- <div class="profile-pic" id="profile-pic"></div> ICEBOX FEATURE TO INCLUDE-->
+        <div class="div-card">
+            <h1>
+                <%= student.name %>
+            </h1>
+            <p>Grade Level: <%= student.gradeLevel%>
+            </p>
+            <% if (student.iep) { %>
+                <p>Has an IEP. See notes for details.</p>
+                <% } else {} %>
+                    <p>Current Average: <%=student.gradeAvg%>
+                    </p>
+                    <% if (student.notes) { %>
+                        <p>Student Notes: <%= student.notes %>
+                        </p>
+                        <% } else { %>
+                            <p>Student Notes: Currently there are no notes for <%=student.name%>
+                            </p>
+                            <% } %>
+        </div>
+
+        <div class="form-actions">
+            <div class="button-div">
+                <a href="/blackboard/classrooms/<%= classroom._id %>/<%= student._id%>/edit" style="text-decoration: none;
+                    color: black;">Edit Student Info</a>
+            </div>
+            <form action="/blackboard/classrooms/<%= classroom._id %>/<%= student._id%>?_method=DELETE" method="POST">
+                <button type="submit" id="delete-button">Remove Student</button>
+            </form>
+        </div>
+    </body>
 </html>

@@ -157,7 +157,6 @@ app.put('/blackboard/classrooms/:classroomId/:studentId', async (req, res) => {
     const currentClass = await Classroom.findById(req.params.classroomId);
     const updateStudent = currentClass.students.id(req.params.studentId);
     updateStudent.set(req.body);
-    console.log(req.body);
     await currentClass.save();
     res.redirect(`/blackboard/classrooms/${req.params.classroomId}`);
     } catch (error) {

@@ -11,6 +11,10 @@ body {
     margin: 0;
     font-family: "Quicksand", sans-serif;
     font-size: 28px;
+    background-image: url('/assets/Chalkboard_Clean_1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .div-card{
